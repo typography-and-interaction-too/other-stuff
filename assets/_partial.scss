@@ -1,0 +1,27 @@
+// These separate files are all *compiled* together into a single CSS file.
+
+
+
+// SCSS lets you nest selectors logically, just like the DOM.
+// So instead of something like this…
+blockquote p:first-child {
+	font-weight: bold;
+}
+
+// You can write it nested, matching the DOM.
+blockquote {
+	p:first-child {
+		font-weight: bold;
+	}
+}
+
+// There is also a “parent selector” &, for when you don’t need hierarchy.
+blockquote {
+	p {
+		&:first-child {
+			font-weight: bold;
+		}
+	}
+}
+
+// These all output exactly the same CSS!

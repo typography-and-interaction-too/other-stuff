@@ -127,6 +127,11 @@ h3:after {
 
 
 
+/* SCSS makes it easy to use separate files. */
+@import 'partial';
+
+
+
 
 
 
@@ -150,7 +155,7 @@ code {
 }
 
 #source-link {
-	@extend blockquote;
+	@extend blockquote; // Extends mean “add my name to this selector”!
 
 	background-color: tomato;
 	color: white;

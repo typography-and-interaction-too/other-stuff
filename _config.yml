@@ -1,3 +1,6 @@
 title: Other Stuff
 
 livereload: true
+
+sass:
+  sass_dir: assets
