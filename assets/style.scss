@@ -7,9 +7,10 @@
 
 // This defines your base variables.
 :root {
-	--background: aquamarine;
+	--background: gold;
 	--color: black;
 	--corners: 4px;
+	--highlight: rgba(0, 0, 0, 0.1);
 	--link--hover: deepskyblue;
 	--link: dodgerblue;
 	--margin: 20px;
@@ -64,20 +65,68 @@ p a:hover {
 blockquote {
 	background: var(--background);
 	border-radius: var(--corners);
-	box-shadow: 0 calc(var(--margin) / 4) calc(var(--margin) / 3) rgba(0, 0, 0, 0.15);
+	box-shadow: 0 calc(var(--margin) / 4) calc(var(--margin) / 3) var(--highlight);
 	margin-top: var(--margin);
 	max-width: var(--max-width);
 	padding: calc(var(--margin) / 2);
 }
 
 blockquote:nth-of-type(2) {
-	--background: gold;  // You can redeclare them at any node level!
+	--background: aquamarine;  // You can redeclare them at any node level!
 }
 
 blockquote:nth-of-type(3) {
 	--color: white; // They are *scoped* to this element and its descendants.
 	--background: var(--link); // You can even set them to other variables!
 }
+
+
+
+/* Just to show the bounding box. */
+div {
+	background-color: var(--highlight);
+	margin-top: calc(var(--margin) * 3);
+	width: fit-content;
+}
+
+h2,
+h3 {
+	line-height: 1;
+	font-size: 6em;
+}
+
+
+
+h3 {
+	--cap-height: 0.698em; // These are all adjusted to this typeface!
+	--inset--left: -0.092em;
+	--inset--right: -0.098em;
+	--shoulder--top: 0.176em; // Space above.
+	--shoulder--bottom: calc(1em - var(--cap-height) - var(--shoulder--top)); // Left on the bottom.
+
+	display: flow-root; // For the negative margins to work.
+	margin-left: var(--inset--left); // Pull in left.
+	margin-right: var(--inset--right); // Pull in right.
+}
+
+// Create the pseudo-elements to negate the “shoulders”.
+h3:before,
+h3:after {
+	content: '';
+	display: block;
+	visibility: hidden;
+}
+
+// Pulls bounding box down to cap-height.
+h3:before {
+	margin-top: calc(-1 * var(--shoulder--top));
+}
+
+ // Pulls bounding box up to baseline.
+h3:after {
+	margin-bottom: calc(-1 * var(--shoulder--bottom));
+}
+
 
 
 
@@ -97,7 +146,8 @@ strong {
 }
 
 code {
-	background-color: rgba(0, 0, 0, 0.1);
+	color: crimson;
+	background-color: var(--highlight);
 	border-radius: var(--corners);
 	display: inline-block;
 	font-family: 'IBM Plex Mono', monospace;
