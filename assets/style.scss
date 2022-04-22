@@ -91,22 +91,19 @@ div {
 
 h2,
 h3 {
-	line-height: 1;
 	font-size: 6em;
 	opacity: 0.2;
 }
 
-
-
 h3 {
-	--cap-height: 0.698em; /* These are all adjusted to this typeface! */
-	--inset--left: -0.092em; /* Pull in left. */
-	--inset--right: -0.098em; /* Pull in right. */
-	--shoulder--top: -0.176em; /* Remove space above. */
-	--shoulder--bottom: calc(-1 * (1em - var(--cap-height) + var(--shoulder--top))); /* Leftover on the bottom. */
+	/* These are all adjusted to this typeface (and line-height)! */
+	--inset--bottom: -0.274em;
+	--inset--left: -0.092em;
+	--inset--right: -0.098em;
+	--inset--top: -0.326em;
 
 	display: flow-root; /* For the negative margins to work. */
-	margin-left: var(--inset--left);
+	margin-left: var(--inset--left); /* Pull in the left/right edges. */
 	margin-right: var(--inset--right);
 }
 
@@ -120,12 +117,12 @@ h3:after {
 
 /* Pulls bounding box down to cap-height. */
 h3:before {
-	margin-top: var(--shoulder--top);
+	margin-top: var(--inset--top);
 }
 
  /* Pulls bounding box up to baseline. */
 h3:after {
-	margin-bottom: var(--shoulder--bottom);
+	margin-bottom: var(--inset--bottom);
 }
 
 
