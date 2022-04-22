@@ -5,7 +5,7 @@
 
 
 
-// This defines your base variables.
+/* This defines your base variables. */
 :root {
 	--background: gold;
 	--color: black;
@@ -18,7 +18,7 @@
 	--type: 16px;
 }
 
-// You can change them at breakpoints.
+/* You can change them at breakpoints. */
 @media (min-width: 600px) {
 	:root {
 		--margin: 40px;
@@ -29,19 +29,19 @@
 
 
 body {
-	// Variables are referenced with `var()`, wherever you use values!
+	/* Variables are referenced with `var()`, wherever you use values! */
 	color: var(--color);
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size: var(--type);
-	// You can even use them in `calc()`.
+	/* You can even use them in `calc()`. */
 	padding: calc(var(--margin) * 3) var(--margin) 50vh;
 }
 
 h1 {
-	font-size: 3em; // This is still relative to the base font size.
+	font-size: 3em; /* This is still relative to the base font size. */
 	font-weight: bold;
 	line-height: 1;
-	margin-bottom: calc(var(--margin) * 3); // Anywhere you use a value.
+	margin-bottom: calc(var(--margin) * 3); /* Anywhere you use a value. */
 }
 
 p {
@@ -72,12 +72,12 @@ blockquote {
 }
 
 blockquote:nth-of-type(2) {
-	--background: aquamarine;  // You can redeclare them at any node level!
+	--background: aquamarine;  /* You can redeclare them at any node level! */
 }
 
 blockquote:nth-of-type(3) {
-	--color: white; // They are *scoped* to this element and its descendants.
-	--background: var(--link); // You can even set them to other variables!
+	--color: white; /* They are *scoped* to this element and its descendants. */
+	--background: var(--link); /* You can even set them to other variables! */
 }
 
 
@@ -98,18 +98,18 @@ h3 {
 
 
 h3 {
-	--cap-height: 0.698em; // These are all adjusted to this typeface!
+	--cap-height: 0.698em; /* These are all adjusted to this typeface! */
 	--inset--left: -0.092em;
 	--inset--right: -0.098em;
-	--shoulder--top: 0.176em; // Space above.
-	--shoulder--bottom: calc(1em - var(--cap-height) - var(--shoulder--top)); // Left on the bottom.
+	--shoulder--top: 0.176em; /* Space above. */
+	--shoulder--bottom: calc(1em - var(--cap-height) - var(--shoulder--top)); /* Left on the bottom. */
 
-	display: flow-root; // For the negative margins to work.
-	margin-left: var(--inset--left); // Pull in left.
-	margin-right: var(--inset--right); // Pull in right.
+	display: flow-root; /* For the negative margins to work. */
+	margin-left: var(--inset--left); /* Pull in left. */
+	margin-right: var(--inset--right); /* Pull in right. */
 }
 
-// Create the pseudo-elements to negate the “shoulders”.
+/* Create the pseudo-elements to negate the “shoulders”. */
 h3:before,
 h3:after {
 	content: '';
@@ -117,12 +117,12 @@ h3:after {
 	visibility: hidden;
 }
 
-// Pulls bounding box down to cap-height.
+/* Pulls bounding box down to cap-height. */
 h3:before {
 	margin-top: calc(-1 * var(--shoulder--top));
 }
 
- // Pulls bounding box up to baseline.
+ /* Pulls bounding box up to baseline. */
 h3:after {
 	margin-bottom: calc(-1 * var(--shoulder--bottom));
 }
@@ -130,7 +130,7 @@ h3:after {
 
 
 
-// @import 'partial';
+/* @import 'partial'; */
 
 
 
