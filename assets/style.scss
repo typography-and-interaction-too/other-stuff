@@ -7,15 +7,21 @@
 
 // This defines your base variables.
 :root {
-	--background: white;
+	--background: aquamarine;
 	--color: black;
+	--corners: 4px;
+	--link--hover: deepskyblue;
+	--link: dodgerblue;
 	--margin: 20px;
+	--max-width: 700px;
+	--type: 16px;
 }
 
 // You can change them at breakpoints.
 @media (min-width: 600px) {
 	:root {
 		--margin: 40px;
+		--type: 20px;
 	}
 }
 
@@ -23,14 +29,95 @@
 
 body {
 	// Variables are referenced with `var()`, wherever you use values!
-	background-color: var(--background);
 	color: var(--color);
 	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: var(--type);
 	// You can even use them in `calc()`.
 	padding: calc(var(--margin) * 3) var(--margin) 50vh;
 }
 
 h1 {
-	font-size: 4em;
+	font-size: 3em; // This is still relative to the base font size.
 	font-weight: bold;
+	line-height: 1;
+	margin-bottom: calc(var(--margin) * 3); // Anywhere you use a value.
+}
+
+p {
+	color: var(--color);
+	max-width: 65ch;
+}
+
+p:not(:first-of-type) {
+	margin-top: calc(var(--margin) / 2);
+}
+
+p a {
+	color: var(--link);
+	text-decoration: underline;
+}
+
+p a:hover {
+	color: var(--link--hover);
+}
+
+blockquote {
+	background: var(--background);
+	border-radius: var(--corners);
+	box-shadow: 0 calc(var(--margin) / 4) calc(var(--margin) / 3) rgba(0, 0, 0, 0.15);
+	margin-top: var(--margin);
+	max-width: var(--max-width);
+	padding: calc(var(--margin) / 2);
+}
+
+blockquote:nth-of-type(2) {
+	--background: gold;  // You can redeclare them at any node level!
+}
+
+blockquote:nth-of-type(3) {
+	--color: white; // They are *scoped* to this element and its descendants.
+	--background: var(--link); // You can even set them to other variables!
+}
+
+
+
+// @import 'partial';
+
+
+
+
+
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+code {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: var(--corners);
+	display: inline-block;
+	font-family: 'IBM Plex Mono', monospace;
+	padding: 0.2em 0.4em;
+	font-size: 0.9em;
+	white-space: pre;
+}
+
+#source-link {
+	@extend blockquote;
+
+	background-color: tomato;
+	color: white;
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 16px;
+	margin-right: calc(var(--margin) / 2);
+	margin-top: calc(var(--margin) / 2);
+	padding: 0.5em 0.75em;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1;
 }
