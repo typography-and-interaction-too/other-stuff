@@ -1,0 +1,11 @@
+{% if page.images %}
+	<section>
+		{% for image in page.images %}
+			<figure>
+				<img src="{{ image.file }}">
+				<figcaption>{{ image.title }}</figcaption>
+				{% include button.html link = image.link title = "Original" %}
+			</figure>
+		{% endfor %}
+	</section>
+{% endif %}

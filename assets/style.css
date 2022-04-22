@@ -1,0 +1,205 @@
+/* This is from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;600;&display=swap');
+
+
+
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1;
+	min-height: 100vh;
+}
+
+
+nav {
+	background-color: white;
+	border-top: 0.1em solid;
+	bottom: 0;
+	display: flex;
+	order: 3;
+	position: fixed;
+	width: 100%;
+}
+
+header {
+	background-color: white;
+	display: flex;
+	gap: 4em;
+	align-items: baseline;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+header,
+main,
+nav {
+	padding: 2em;
+}
+
+main {
+	width: 100%;
+}
+
+footer {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50vh;
+}
+
+header + main {
+	margin-top: 6em;
+}
+
+menu {
+	display: flex;
+	flex-wrap: wrap;
+	gap:     1em;
+}
+
+menu li {
+	min-width: max-content;
+}
+
+menu li.current {
+	color: tomato;
+}
+
+@media (min-width: 768px) {
+	body {
+		flex-direction: row;
+		font-size: 20px;
+	}
+
+	nav {
+		align-items: end;
+		border-left: 0.1em solid;
+		border-top: none;
+		position: static;
+		width: auto;
+	}
+
+	menu {
+		bottom: 2em;
+		position: sticky;
+		flex-direction: column;
+	}
+}
+
+
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: 600;
+}
+
+p, h2, h3 {
+	max-width: 65ch;
+}
+
+p + p {
+	margin-top: 1em;
+}
+
+p a {
+	text-decoration: underline;
+	text-decoration-thickness: 0.075em;
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: 200;
+}
+
+
+h2 {
+	padding-bottom: 0.5em;
+	width: fit-content;
+}
+
+h2, header, hr {
+	border-bottom: 0.1em solid;
+}
+
+h2:not(:first-child), h3:not(:first-child) {
+	margin-top: 2em;
+}
+
+h2, h3 {
+	margin-bottom: 2em;
+}
+
+h3 {
+	color: tomato;
+}
+
+ul {
+	list-style-type: '—';
+	padding-left: 1em;
+}
+
+ul, blockquote, hr {
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+ul li {
+	margin-top: 0.5em;
+	padding-left: 1em;
+}
+
+li::marker {
+	margin-right: 1em;
+}
+
+code {
+	background-color: rgba(0, 0, 0, 0.066);
+	color: tomato;
+	border-radius: 0.2em;
+	display: inline-block;
+	font-family: monospace;
+	padding: 0.2em 0.4em;
+	font-size: 0.9em;
+	white-space: pre;
+}
+
+blockquote {
+	border-left: 0.1em solid;
+	padding-left: 1em;
+}
+
+
+
+body.page > main > section {
+	margin-top: 4em;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2em;
+}
+
+body.page figcaption {
+	font-style: italic;
+	margin-top: 1em;
+}
+
+body.page figure a {
+	border: 0.1em solid;
+	display: inline-block;
+	font-size: 0.66em;
+	font-weight: 300;
+	margin-top: 1em;
+	padding: 0.25em;
+	text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+	body.page > main > section {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}

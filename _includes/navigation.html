@@ -1,0 +1,15 @@
+{% assign current = page.url %}
+{% assign pages = site.pages | sort: "nav" %}
+<nav>
+	<menu>
+		{% for page in pages %}
+			{% if page.nav %}
+				<li class="{% if page.url == current %}current{% endif %}">
+					<a href="{{ page.url | relative_url | remove: '.html' }}">
+						{{ page.title | default: 'Home' }}
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</menu>
+</nav>
