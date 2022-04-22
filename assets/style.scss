@@ -1,14 +1,33 @@
 ---
 ---
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+
+
+// This defines your base variables.
+:root {
+	--background: white;
+	--color: black;
+	--margin: 20px;
+}
+
+// You can change them at breakpoints.
+@media (min-width: 600px) {
+	:root {
+		--margin: 40px;
+	}
+}
+
+
+
 body {
+	// Variables are referenced with `var()`, wherever you use values!
+	background-color: var(--background);
+	color: var(--color);
 	font-family: 'IBM Plex Sans', sans-serif;
-	font-size: 16px;
-	padding: 4em 2em 50vh;
+	// You can even use them in `calc()`.
+	padding: calc(var(--margin) * 3) var(--margin) 50vh;
 }
 
 h1 {
