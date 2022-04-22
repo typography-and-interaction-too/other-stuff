@@ -93,20 +93,21 @@ h2,
 h3 {
 	line-height: 1;
 	font-size: 6em;
+	opacity: 0.2;
 }
 
 
 
 h3 {
 	--cap-height: 0.698em; /* These are all adjusted to this typeface! */
-	--inset--left: -0.092em;
-	--inset--right: -0.098em;
-	--shoulder--top: 0.176em; /* Space above. */
-	--shoulder--bottom: calc(1em - var(--cap-height) - var(--shoulder--top)); /* Left on the bottom. */
+	--inset--left: -0.092em; /* Pull in left. */
+	--inset--right: -0.098em; /* Pull in right. */
+	--shoulder--top: -0.176em; /* Remove space above. */
+	--shoulder--bottom: calc(-1 * (1em - var(--cap-height) + var(--shoulder--top))); /* Leftover on the bottom. */
 
 	display: flow-root; /* For the negative margins to work. */
-	margin-left: var(--inset--left); /* Pull in left. */
-	margin-right: var(--inset--right); /* Pull in right. */
+	margin-left: var(--inset--left);
+	margin-right: var(--inset--right);
 }
 
 /* Create the pseudo-elements to negate the “shoulders”. */
@@ -119,12 +120,12 @@ h3:after {
 
 /* Pulls bounding box down to cap-height. */
 h3:before {
-	margin-top: calc(-1 * var(--shoulder--top));
+	margin-top: var(--shoulder--top);
 }
 
  /* Pulls bounding box up to baseline. */
 h3:after {
-	margin-bottom: calc(-1 * var(--shoulder--bottom));
+	margin-bottom: var(--shoulder--bottom);
 }
 
 
